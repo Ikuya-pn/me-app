@@ -9,4 +9,9 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+
+    public function user(Request $request) {
+        $role = detect_role();
+        return $request->user($role);
+    }
 }
