@@ -18,19 +18,21 @@ const showingNavigationDropdown = ref(false);
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between h-16">
                         <div class="flex">
-                            <!-- Logo -->
-                            <div class="shrink-0 flex items-center">
-                                <Link :href="route('admin.dashboard')">
-                                    <ApplicationLogo
-                                        class="block h-9 w-auto fill-current text-gray-800"
-                                    />
-                                </Link>
+                            <div class="hidden space-x-8 sm:-my-px sm:flex">
+                                <NavLink :href="route('admin.index')" :active="route().current('admin.index')" class="font-bold">
+                                    TOP
+                                </NavLink>
                             </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink :href="route('admin.dashboard')" :active="route().current('admin.dashboard')">
-                                    Dashboard
+                                <NavLink :href="route('admin.customer.index')" :active="route().current('admin.customer.index')">
+                                    顧客管理
+                                </NavLink>
+                            </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('admin.worker.index')" :active="route().current('admin.worker.index')">
+                                    ワーカー管理
                                 </NavLink>
                             </div>
                         </div>
@@ -64,9 +66,8 @@ const showingNavigationDropdown = ref(false);
                                     </template>
 
                                     <template #content>
-                                        <DropdownLink :href="route('admin.profile.edit')"> Profile </DropdownLink>
                                         <DropdownLink :href="route('admin.logout')" method="post" as="button">
-                                            Log Out
+                                            ログアウト
                                         </DropdownLink>
                                     </template>
                                 </Dropdown>
@@ -112,8 +113,13 @@ const showingNavigationDropdown = ref(false);
                     class="sm:hidden"
                 >
                     <div class="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink :href="route('admin.dashboard')" :active="route().current('admin.dashboard')">
-                            Dashboard
+                        <ResponsiveNavLink :href="route('admin.customer.index')" :active="route().current('admin.customer.index')">
+                            顧客管理
+                        </ResponsiveNavLink>
+                    </div>
+                    <div class="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink :href="route('admin.worker.index')" :active="route().current('admin.worker.index')">
+                            ワーカー管理
                         </ResponsiveNavLink>
                     </div>
 
@@ -127,9 +133,8 @@ const showingNavigationDropdown = ref(false);
                         </div>
 
                         <div class="mt-3 space-y-1">
-                            <ResponsiveNavLink :href="route('admin.profile.edit')"> Profile </ResponsiveNavLink>
                             <ResponsiveNavLink :href="route('admin.logout')" method="post" as="button">
-                                Log Out
+                                ログアウト
                             </ResponsiveNavLink>
                         </div>
                     </div>

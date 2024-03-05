@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Work;
+use App\Models\MonthlySalary;
 
 class Worker extends Authenticatable
 {
@@ -19,8 +21,9 @@ class Worker extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'worker_number',
         'password',
+        'hourly_wage',
     ];
 
     /**
@@ -42,4 +45,15 @@ class Worker extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function works()
+    {
+        return $this->hasMany(Work::class);
+    }
+
+    public function monthly_salaries()
+    {
+        return $this->hasMany(MonthlySalary::class);
+    }
+
 }

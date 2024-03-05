@@ -6,6 +6,8 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "@inertiajs/inertia": "^0.11.0",
+        "@inertiajs/inertia-vue3": "^0.6.0",
         "@inertiajs/vue3": "^1.0.0",
         "@tailwindcss/forms": "^0.5.3",
         "@vitejs/plugin-vue": "^5.0.0",
@@ -19,6 +21,8 @@
     },
     "dependencies": {
         "dayjs": "^1.11.10",
-        "vue-router": "^4.2.5"
+        "micromodal": "^0.4.10",
+        "vue-router": "^4.2.5",
+        "yubinbango-core2": "^0.6.3"
     }
 }

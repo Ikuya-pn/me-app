@@ -1,0 +1,26 @@
+<template>
+  <div class="container mx-auto py-8">
+    <div class="text-center text-2xl font-bold mb-4">今月のカレンダー</div>
+    <div class="grid grid-cols-7 gap-2">
+      <!-- 曜日ヘッダー -->
+      <div v-for="day in daysOfWeek" :key="day" class="text-center font-semibold">{{ day }}</div>
+      <!-- 日付表示 -->
+      <div v-for="cell in calendarCells" :key="cell.date" class="text-center">
+        <div class="mb-1">{{ cell.date }}</div>
+        <div v-if="cell.isWorking" class="text-green-500">◎</div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, computed } from 'vue';
+
+// 仮の勤務日
+const dummyWorkingDates = [
+  '2024-02-01', '2024-02-03', '2024-02-06', '2024-02-09', '2024-02-11',
+  '2024-02-14', '2024-02-16', '2024-02-19', '2024-02-22', '2024-02-25',
+];
+
+
+</script>

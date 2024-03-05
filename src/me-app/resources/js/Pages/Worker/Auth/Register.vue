@@ -10,7 +10,7 @@ const form = useForm({
     name: '',
     email: '',
     password: '',
-    password_confirmation: '',
+    password_confirmation: '', 
 });
 
 const submit = () => {
@@ -88,7 +88,7 @@ const submit = () => {
 
             <div class="flex items-center justify-end mt-4">
                 <Link
-                    :href="route('workerlogin')"
+                    :href="route('worker.login')"
                     class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                     Already registered?

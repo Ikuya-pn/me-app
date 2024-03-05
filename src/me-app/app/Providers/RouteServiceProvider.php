@@ -19,10 +19,21 @@ class RouteServiceProvider extends ServiceProvider
      */
     private const HOME = '/dashboard';
 
-    public static function home() {
+    public static function home(){
         $role = detect_role();
-        return empty($role) ? self::HOME : '/' . $role . self::HOME;
+        if(empty($role)){
+            return self::HOME;
+        }elseif($role == 'worker'){
+            return '/' . $role . '/' . 'works' . '/' . 'index';
+        }else{
+            return '/' . $role;
+        }
     }
+
+    // public static function home() {
+    //     $role = detect_role();
+    //     return empty($role) ? self::HOME : '/' . $role . self::HOME;
+    // }
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
@@ -30,7 +41,8 @@ class RouteServiceProvider extends ServiceProvider
     public function boot(): void
     {
         RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+            $role = detect_role();
+            return Limit::perMinute(60)->by($request->user($role)?->id ?: $request->ip());
         });
 
         $this->routes(function () {
