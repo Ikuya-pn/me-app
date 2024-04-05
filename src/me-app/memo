@@ -1,0 +1,19 @@
+* * * * * cd /home/ec2-user/me-app && docker-compose exec app php artisan app:store-monthly-salary
+
+
+Mar 19 20:01:01 ip-192-168-2-21 CROND[259327]: (root) CMD (run-parts /etc/cron.hourly)
+Mar 19 20:01:01 ip-192-168-2-21 run-parts[259327]: (/etc/cron.hourly) starting 0anacron
+Mar 19 20:01:01 ip-192-168-2-21 run-parts[259327]: (/etc/cron.hourly) finished 0anacron
+Mar 19 20:01:01 ip-192-168-2-21 CROND[259325]: (root) CMDEND (run-parts /etc/cron.hourly)
+Mar 19 20:01:01 ip-192-168-2-21 CROND[259338]: (ec2-user) CMD (cd /home/ec2-user/me-app && docker-compose exec app php artisan app:store-monthly-salary)
+Mar 19 20:01:01 ip-192-168-2-21 CROND[259326]: (ec2-user) CMDOUT (/bin/sh: line 1: docker-compose: command not found)
+Mar 19 20:01:01 ip-192-168-2-21 CROND[259326]: (ec2-user) CMDEND (cd /home/ec2-user/me-app && docker-compose exec app php artisan app:store-monthly-salary)
+
+Mar 19 20:06:01 ip-192-168-2-21 crond[245234]: (ec2-user) RELOAD (/var/spool/cron/ec2-user)
+Mar 19 20:06:01 ip-192-168-2-21 CROND[259765]: (ec2-user) CMD (docker-compose exec app php artisan app:store-monthly-salary)
+Mar 19 20:06:01 ip-192-168-2-21 CROND[259763]: (ec2-user) CMDOUT (/bin/sh: line 1: docker-compose: command not found)
+Mar 19 20:06:01 ip-192-168-2-21 CROND[259763]: (ec2-user) CMDEND (docker-compose exec app php artisan app:store-monthly-salary)
+
+Mar 19 20:11:01 ip-192-168-2-21 crond[245234]: (ec2-user) RELOAD (/var/spool/cron/ec2-user)
+Mar 19 20:11:01 ip-192-168-2-21 CROND[260266]: (ec2-user) CMD (cd /home/ec2-user/me-app && /usr/local/bin/docker-compose exec app php artisan app:store-monthly-salary)
+Mar 19 20:11:01 ip-192-168-2-21 CROND[260264]: (ec2-user) CMDEND (cd /home/ec2-user/me-app && /usr/local/bin/docker-compose exec app php artisan app:store-monthly-salary)
